@@ -1,0 +1,37 @@
+package com.neosoft.email.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.neosoft.email.bean.User;
+import com.neosoft.email.service.MailService;
+
+@RestController("/mail")
+public class EmailController {
+	
+	@Autowired
+	public MailService service;
+	
+	@PostMapping("/sent")
+	public String sendmail(@RequestBody User user) {
+		
+		Boolean isSent=false;
+		String message;
+		if(Boolean.FALSE.equals(isSent) && user==null) {
+			
+		message="user is empty or mail aready sent";	
+		return message;
+			
+		}else {
+			return message="mail Sent Succesfully please  verfiy Account";
+			
+		}
+		//return message;
+			
+		
+		
+		
+	}
+}

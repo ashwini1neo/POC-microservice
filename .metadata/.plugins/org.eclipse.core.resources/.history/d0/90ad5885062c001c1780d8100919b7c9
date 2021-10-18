@@ -1,0 +1,16 @@
+package com.neosoft.email.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.neosoft.email.bean.mailCounter;
+
+public interface mailCounterRepo extends JpaRepository<mailCounter, Integer> {
+	
+	
+	
+	public Boolean updateCount();
+	
+	public Integer find
+
+}

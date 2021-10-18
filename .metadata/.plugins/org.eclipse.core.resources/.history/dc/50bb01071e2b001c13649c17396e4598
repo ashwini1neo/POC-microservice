@@ -1,0 +1,5 @@
+package com.neosoft.user.bean;
+
+public class User {
+
+}

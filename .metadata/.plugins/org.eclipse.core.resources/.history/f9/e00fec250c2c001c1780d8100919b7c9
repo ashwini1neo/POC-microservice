@@ -1,0 +1,31 @@
+package com.neosoft.email.service;
+
+import org.springframework.stereotype.Service;
+
+import com.neosoft.email.bean.User;
+
+@Service
+public class MailserviceImpl implements MailService{
+
+	@Override
+	public boolean send(User user) {
+		
+		return false;
+	}
+
+	@Override
+	public String setTemplate(User user) {
+		
+		readTeamplate();
+		
+		return null;
+	}
+
+	@Override
+	public String readTeamplate() {
+
+		
+		return null;
+	}
+
+}

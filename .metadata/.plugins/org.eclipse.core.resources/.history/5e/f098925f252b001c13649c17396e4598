@@ -1,0 +1,22 @@
+package com.neosoft.user.utill;
+
+import org.springframework.beans.BeanUtils;
+
+import com.neosoft.user.bean.User;
+import com.neosoft.user.entity.UserEntity;
+
+public class DataMapper {
+	
+	UserEntity beanToEntity(User user){
+		UserEntity entity=new UserEntity();
+		BeanUtils.copyProperties(user, entity);
+		return entity;
+	}
+
+	
+	UserEntity entityToBean(UserEntity user){
+		UserEntity entity=new UserEntity();
+		BeanUtils.copyProperties(user, entity);
+		return entity;
+	}
+}

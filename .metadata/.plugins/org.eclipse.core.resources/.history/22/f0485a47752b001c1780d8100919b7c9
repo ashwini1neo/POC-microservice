@@ -1,0 +1,10 @@
+
+
+
+## Mongo Properties
+spring :
+  data:
+    mongodb:
+    database: userdb
+    host: localhost
+    port: 27017

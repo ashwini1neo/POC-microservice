@@ -1,0 +1,44 @@
+package com.neosoft.user.utill;
+
+import org.apache.http.HttpRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Template;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.neosoft.user.bean.User;
+
+@Component
+public class OutBound {
+	
+	
+	public  Boolean verificationMail(User user) throws JsonProcessingException {
+		
+		HttpHeaders headers=new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		                                                                                                                                                                                                                                                                                                                                                                                                                     
+		String jsonUser = userToJson(user);
+		HttpEntity entity =new HttpEntity<User>(user,headers) ;
+		
+		RestTemplate restTemplate =new RestTemplate();
+		restTemplate.postForEntity(null, entity, null);
+		
+		
+		
+		return true;
+		
+	}
+	
+	public String userToJson(User user) throws JsonProcessingException{
+		ObjectMapper obMapper=new ObjectMapper();
+		String jsonUser = obMapper.writeValueAsString(user);
+		return jsonUser;
+		
+	}
+
+}

@@ -1,0 +1,84 @@
+package com.neosoft.user.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.neosoft.user.bean.User;
+import com.neosoft.user.entity.UserEntity;
+import com.neosoft.user.repository.UserRepository;
+import com.neosoft.user.utill.DataMapper;
+import com.netflix.discovery.converters.Auto;
+
+
+@Service
+public class UserServiceImpl implements UserService{
+	
+	
+	
+@Autowired
+	private UserRepository repo;
+	
+	
+	
+
+	@Override
+//	@Transactional
+	public User saveUser(User user) {
+		
+		try {
+			UserEntity entity = DataMapper.beanToEntity(user);
+			UserEntity entity2 = repo.save(entity);
+			return DataMapper.entityToBean(entity2);
+		} catch (Exception e) {
+			throw new UserCreationException();
+		}
+	}
+
+	@Override
+	@Transactional
+	public User updateUser(User user) {
+		
+		return null;
+	}
+
+	@Override
+	public User getById(String id) {
+		User user = new User();
+		try {
+			if (id > 0 && id != null) {
+				Optional<UserEntity> findById = repo.findById(id);
+				// UserEntity findById = repo.getOne(id);
+				if (findById.isPresent()) {
+					UserEntity userEntity = findById.get();
+					user = DataMapper.entityToBean(userEntity);
+					return user;
+				}
+			}
+			else {
+				throw new UserNotFoundException("User not availabel with id " + id);
+			}
+		} catch (Exception e) {
+			throw new UserNotFoundException("User not availabel with id " + id);
+		}
+
+		return user;	}
+
+	@Override
+	public List<User> getAllUsers() {
+		return null;
+	}
+
+
+
+	@Override
+	public void deleteUser(String id) {
+		
+	}
+
+	
+
+}

@@ -1,0 +1,70 @@
+package com.neosoft.user.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.neosoft.user.bean.User;
+import com.neosoft.user.entity.UserEntity;
+import com.neosoft.user.repository.UserRepository;
+import com.neosoft.user.utill.DataMapper;
+import com.netflix.discovery.converters.Auto;
+
+
+@Service
+public class UserServiceImpl implements UserService{
+	
+	
+	
+@Autowired
+	private UserRepository repo;
+	
+	
+	
+
+	@Override
+//	@Transactional
+	public User saveUser(User user) {
+		
+		try {
+			UserEntity entity = DataMapper.beanToEntity(user);
+			UserEntity entity2 = repo.save(entity);
+			return DataMapper.entityToBean(entity2);
+		} catch (Exception e) {
+			throw new UserCreationException();
+		}
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getById(String Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void deleteUser(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

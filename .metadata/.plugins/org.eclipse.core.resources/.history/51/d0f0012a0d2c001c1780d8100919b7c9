@@ -1,0 +1,14 @@
+package com.neosoft.email.service;
+
+import javax.mail.MessagingException;
+
+import com.neosoft.email.bean.User;
+
+public interface MailService {
+	 
+	public boolean send(User user) throws MessagingException;
+	
+	public String setTemplate(User user);
+	
+	public String readTeamplate();
+}

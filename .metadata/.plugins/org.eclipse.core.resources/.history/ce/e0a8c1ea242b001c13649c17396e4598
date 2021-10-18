@@ -1,0 +1,9 @@
+package com.neosoft.user.utill;
+
+import com.neosoft.user.entity.UserEntity;
+
+public class DataMapper {
+	
+	UserEntity beanToEntity(USer user){}
+
+}

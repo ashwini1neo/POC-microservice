@@ -1,0 +1,5 @@
+package com.neosoft.user.service;
+
+public interface UserService {
+
+}

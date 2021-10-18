@@ -1,0 +1,26 @@
+package com.neosoft.email.service;
+
+import com.neosoft.email.bean.User;
+
+public class MailserviceImpl implements MailService{
+
+	@Override
+	public boolean send() {
+		
+		return false;
+	}
+
+	@Override
+	public String setTemplate(User user) {
+		
+		return null;
+	}
+
+	@Override
+	public String readTeamplate() {
+
+		
+		return null;
+	}
+
+}

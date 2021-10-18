@@ -1,0 +1,59 @@
+package com.neosoft.user.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.neosoft.user.entity.UserEntity;
+import com.neosoft.user.repository.UserRepository;
+
+@Service
+public class UserServiceImpl implements UserService{
+	
+	
+	
+
+	private UserRepository repo;
+	
+	public UserServiceImpl(UserRepository repo) {
+		super();
+		this.repo = repo;
+	}
+	
+	
+
+	@Override
+	@Transactional
+	public User saveUser(UserEntity entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public UserEntity updateUser(UserEntity entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserEntity getById(String Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserEntity> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public void deleteUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

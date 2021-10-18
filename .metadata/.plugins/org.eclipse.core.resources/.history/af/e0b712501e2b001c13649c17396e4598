@@ -1,0 +1,23 @@
+package com.neosoft.user.bean;
+
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column
+	private String firsName;
+	
+	@Column
+	private String lastName;
+	
+	@Column
+	private String email;
+	
+	
+	
+}

@@ -1,0 +1,11 @@
+package com.neosoft.email.bean;
+
+import javax.persistence.Id;
+
+public class mailCounter {
+	
+	@Id
+	private Integer id;
+	private Integer Count;
+
+}

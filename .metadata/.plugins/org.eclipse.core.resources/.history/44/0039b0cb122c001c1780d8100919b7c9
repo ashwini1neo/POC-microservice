@@ -1,0 +1,10 @@
+package com.neosoft.user.utill;
+
+public class OutBound {
+	
+	public static Boolean verificationMail(String email) {
+		return null;
+		
+	}
+
+}

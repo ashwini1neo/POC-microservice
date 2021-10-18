@@ -1,0 +1,13 @@
+###application properties
+server:
+  port: 6060
+
+
+
+### Mongo Properties
+spring :
+  data:
+    mongodb:
+      database: userdb
+      host: localhost
+      port: 27017

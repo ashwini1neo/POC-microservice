@@ -1,0 +1,12 @@
+package com.neosoft.user.feignclients;
+
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignClient;
+
+@EnableFeignClients(name="EMAIL-SERVICE")
+public interface EmailFeign {
+	
+	@FeignClient(url="",name="")
+	public String sendEmail();
+
+}

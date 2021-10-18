@@ -1,0 +1,14 @@
+package com.neosoft.user.feignclients;
+
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@FeignClient(name="EMAIL-SERVICE")
+public interface EmailFeign {
+	
+	
+	@RequestMapping(url="/mail/sent")
+	public String sendEmail();
+
+}

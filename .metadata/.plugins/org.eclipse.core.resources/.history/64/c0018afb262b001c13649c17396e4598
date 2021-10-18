@@ -1,0 +1,26 @@
+package com.neosoft.user.entity;
+
+import java.io.Serializable;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document
+public class UserEntity implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	
+
+	private Long id;
+	
+	
+	private String firsName;
+	
+	
+	private String lastName;
+	
+	
+	private String email;
+
+}

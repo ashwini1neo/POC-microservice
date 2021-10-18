@@ -1,0 +1,39 @@
+package com.neosoft.user.service;
+
+import java.util.List;
+
+import com.neosoft.user.entity.UserEntity;
+
+public class UserServiceImpl implements UserService{
+
+	@Override
+	public UserEntity saveUser(UserEntity entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserEntity updateUser(UserEntity entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserEntity getById(String Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserEntity> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

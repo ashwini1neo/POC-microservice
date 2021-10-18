@@ -1,0 +1,12 @@
+package com.neosoft.email.service;
+
+import com.neosoft.email.bean.User;
+
+public interface MailService {
+	 
+	public boolean send();
+	
+	public String setTemplate(User user);
+	
+	public String readTeamplate();
+}

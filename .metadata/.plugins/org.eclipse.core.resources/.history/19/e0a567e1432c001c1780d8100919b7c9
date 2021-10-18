@@ -1,0 +1,13 @@
+###application properties
+server.port=6060
+
+
+
+##
+
+application-description=
+
+### Mongo Properties
+spring.data.mongodb.database=userdb
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017

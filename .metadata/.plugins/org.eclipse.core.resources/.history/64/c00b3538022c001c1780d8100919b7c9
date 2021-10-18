@@ -1,0 +1,9 @@
+package com.neosoft.email.bean;
+
+public class mailCounter {
+	@Id
+	public Integer id;
+	
+	Integer Count
+
+}

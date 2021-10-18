@@ -1,0 +1,10 @@
+package com.neosoft.email.service;
+
+public interface MailService {
+	 
+	publikc boolean send();
+	
+	public String setTemplate(User user);
+	
+	public String readTeamplate();
+}

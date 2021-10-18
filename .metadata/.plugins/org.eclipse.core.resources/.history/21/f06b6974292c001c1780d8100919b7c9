@@ -1,0 +1,11 @@
+package com.neosoft.user.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.neosoft.user.entity.UserEntity;
+
+public interface UserRepository extends MongoRepository<UserEntity, String>{
+
+	publicUserEntity findByEmail(String email);
+
+}

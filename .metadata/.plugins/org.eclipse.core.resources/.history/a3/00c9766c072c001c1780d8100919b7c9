@@ -1,0 +1,22 @@
+package com.neosoft.email.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.neosoft.email.service.MailService;
+
+@RestController("/mail")
+public class EmailController {
+	
+	@Autowired
+	public MailService service;
+	
+	@PostMapping
+	public boolean sendmail(User user) {
+		
+		Boolean issent=false;
+		
+		return isSent;
+	}
+}

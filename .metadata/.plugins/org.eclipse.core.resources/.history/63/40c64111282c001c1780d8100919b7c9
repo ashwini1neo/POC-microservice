@@ -1,0 +1,96 @@
+package com.neosoft.user.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.neosoft.user.bean.User;
+import com.neosoft.user.exception.UserCreationException;
+import com.neosoft.user.exception.UserNotFoundException;
+import com.neosoft.user.service.UserService;
+import com.neosoft.user.utill.OutBound;
+
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService service;
+	
+	private OutBound outBond;
+	
+	
+	
+	//Add User
+	@PostMapping(path = "/addUser", consumes = "application/json")
+	public ResponseEntity<? extends Object> saveUser( @RequestBody User user) throws UserCreationException {
+		user.setIsActive(Boolean.FALSE);
+		
+		Boolean mailSent = outBond.verificationMail(user);
+		//if(mailSent) 
+		User user2 = service.saveUser(user);
+		
+		return new ResponseEntity<Object>(user2, HttpStatus.CREATED);
+	}
+	
+	//Get All Active Users List
+	@GetMapping("/allActiveUsers")
+	public ResponseEntity<?> getAllActiveUsers() throws UserNotFoundException {
+		List<User> allUsers = service.getAllUsers();
+		return new ResponseEntity<List<User>>(allUsers,HttpStatus.OK);
+	}
+	
+	
+	//Get All Users List
+	@GetMapping("/allUsers")
+	public ResponseEntity<?> getAllUsers() throws UserNotFoundException {
+		List<User> allUsers = service.getAllUsers();
+		return new ResponseEntity<>(allUsers,HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/getById/{id}")
+	public ResponseEntity<? extends Object> getById(@PathVariable String id) throws UserNotFoundException, UserCreationException {
+		User userbyId = service.getById(id);
+		return new ResponseEntity<User>(userbyId , HttpStatus.OK);}
+	
+	
+	
+	//update user By id
+	@PutMapping("update/{id}")
+	public ResponseEntity<? extends Object> updateUser( @RequestBody User user,@PathVariable String id) throws UserNotFoundException, UserCreationException {
+		User userbyId = service.getById(id);
+		
+		Boolean b = user.getIsActive();
+
+		if (userbyId.getId() == user.getId() && Boolean.TRUE.equals(b)) {
+			User updatedUser = service.updateUser(user);
+			return new ResponseEntity<>(updatedUser , HttpStatus.OK);
+		}
+		else {
+			throw new UserNotFoundException("user not available with given id");
+		}
+		
+	}
+	
+
+	
+	@DeleteMapping("/hdelete/{id}")
+	public ResponseEntity<?> hardDelete(@PathVariable String id) throws UserNotFoundException{
+		service.deleteUser(id);
+		return new ResponseEntity<String>(new String("user deleted permanantly"),HttpStatus.OK);
+	}
+
+	
+	
+	
+	
+}

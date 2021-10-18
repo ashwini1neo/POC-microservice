@@ -1,0 +1,8 @@
+
+Hi {NAME} {LASTNAME},:
+
+Please click on below link to activate your account.
+
+<a href='http://localhost:6060/setActivate?email={EMAIL}'>
+
+Thanking you to joining us.

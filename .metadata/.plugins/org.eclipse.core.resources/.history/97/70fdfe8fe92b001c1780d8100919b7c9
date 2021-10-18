@@ -1,0 +1,18 @@
+package com.neosoft.user.exception;
+
+public class UserCreationException extends Exception{
+	
+	private String message;
+	
+	public UserCreationException() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserCreationException(String string) {
+	//	super();
+		this.string = string;
+	}
+	
+	
+
+}

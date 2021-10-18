@@ -1,0 +1,23 @@
+package com.neosoft.user.service;
+
+import java.util.List;
+
+import com.neosoft.user.bean.User;
+import com.neosoft.user.entity.UserEntity;
+import com.neosoft.user.exception.UserNotFoundException;
+
+public interface UserService {
+	
+	public User saveUser(User user);
+	
+	public User updateUser(User user);
+	
+	public User getById(String id);
+	
+	
+	public List<User> getAllUsers() throws UserNotFoundException;
+	
+	public void deleteUser(String id) throws UserNotFoundException;
+	
+
+}

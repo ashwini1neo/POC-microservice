@@ -1,0 +1,9 @@
+package com.neosoft.user.service;
+
+import com.neosoft.user.entity.UserEntity;
+
+public interface UserService {
+	
+	public UserEntity saveUser(UserEntity entity);
+
+}

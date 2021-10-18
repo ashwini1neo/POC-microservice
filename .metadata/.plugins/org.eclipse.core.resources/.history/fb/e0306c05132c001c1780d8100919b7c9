@@ -1,0 +1,13 @@
+package com.neosoft.user.utill;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class OutBound {
+	
+	public static Boolean verificationMail(String email) {
+		return null;
+		
+	}
+
+}

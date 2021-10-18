@@ -1,0 +1,14 @@
+package com.neosoft.email.bean;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.GeneratorType;
+@Entity
+public class mailCounter {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+}

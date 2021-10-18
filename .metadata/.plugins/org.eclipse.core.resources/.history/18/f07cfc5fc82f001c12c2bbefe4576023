@@ -1,0 +1,16 @@
+###application properties
+server.port=6060
+spring.application.name=USER-SERVICE
+
+
+eureka.client.serviceUrl.defaultZone  = http://localhost:8761/eureka
+eureka.client.instance.preferIpAddress = true
+##
+
+application-description=
+application-version=
+
+### Mongo Properties
+spring.data.mongodb.database=userdb
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
